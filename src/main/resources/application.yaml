@@ -1,0 +1,35 @@
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  datasource:
+    username: gobook
+    password: gobook
+    url: jdbc:mysql://localhost:3307/gobook?serverTimezone=UTC&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate:
+      SQL: debug
+      type.descriptor.sql.BasicBinder: trace
+app:
+  host: http://localhost:8080
+server:
+  tomcat:
+    max-http-form-post-size: 5MB
+    
+    
+    
+ # mvc:
+ #   hiddenmethod:
+  #    filter:
+  #      enabled: true
