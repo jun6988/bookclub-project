@@ -1,17 +1,35 @@
 package com.prefix.app.modules.account.domain.entity;
 
-import lombok.*;
-import org.hibernate.Hibernate;
-
-import com.prefix.app.modules.account.endpoint.controller.form.NotificationForm;
-import com.prefix.app.modules.tag.domain.entity.Tag;
-
-import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.PostLoad;
+
+import org.hibernate.Hibernate;
+
+import com.prefix.app.modules.account.endpoint.controller.form.NotificationForm;
+import com.prefix.app.modules.tag.domain.entity.Tag;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED) @AllArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,6 +39,9 @@ public class Account extends AuditingEntity {
     @Id @GeneratedValue
     @Column(name = "account_id")
     private Long id;
+    
+    @Column(unique = true)
+    private String userId;
 
     @Column(unique = true)
     private String email;
@@ -156,5 +177,17 @@ public class Account extends AuditingEntity {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+    
+    //june
+    private Account(String userId, String password, String email, String nickname) {
+        this.userId = userId;
+        this.password = password;
+        this.email = email;
+        this.nickname = nickname;
+    }
+
+    public static Account of(String userId, String password, String email, String nickname) {
+        return new Account(userId, password, email, nickname);
     }
 }

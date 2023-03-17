@@ -3,6 +3,7 @@ package com.prefix.app.modules.account.infra.repository;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.prefix.app.modules.account.domain.entity.Account;
@@ -25,4 +26,9 @@ public interface AccountRepository extends JpaRepository<Account, Long>,
 
   @EntityGraph(attributePaths = {"tags", "zones"})
   Account findAccountWithTagsAndZonesById(Long id);
+
+  //june
+  Account getReferenceById(String userId);
+ 
+  UserDetails findById(String username);
 }
