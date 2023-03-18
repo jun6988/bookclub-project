@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import com.prefix.app.article.domain.Article;
 import com.prefix.app.article.domain.Article_Comment;
-import com.prefix.app.modules.account.domain.entity.Account;
+import com.prefix.app.readingnote.domain.Account;
 
 public record Article_CommentDto(
         Long id,

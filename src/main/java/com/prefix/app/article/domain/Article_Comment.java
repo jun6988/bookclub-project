@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.prefix.app.modules.account.domain.entity.Account;
+import com.prefix.app.readingnote.domain.Account;
 
 import lombok.Getter;
 import lombok.Setter;

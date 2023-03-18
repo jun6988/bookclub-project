@@ -12,8 +12,8 @@ import com.prefix.app.article.domain.Article_Comment;
 import com.prefix.app.article.dto.Article_CommentDto;
 import com.prefix.app.article.repository.ArticleRepository;
 import com.prefix.app.article.repository.Article_CommentRepository;
-import com.prefix.app.modules.account.domain.entity.Account;
-import com.prefix.app.modules.account.infra.repository.AccountRepository;
+import com.prefix.app.readingnote.domain.Account;
+import com.prefix.app.readingnote.repository.AccountRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +40,7 @@ public class Article_CommentService {
     public void saveArticle_Comment(Article_CommentDto dto) {
         try {
             Article article = articleRepository.getReferenceById(dto.articleId());
-            Account account = accountRepository.getReferenceById(dto.accountDto().userId());
+            Account account = accountRepository.getReferenceById(dto.accountDto().id());
             article_CommentRepository.save(dto.toEntity(article, account));
         } catch (EntityNotFoundException e) {
             log.warn("댓글 저장 실패. 댓글 작성에 필요한 정보를 찾을 수 없습니다 - {}", e.getLocalizedMessage());
@@ -56,8 +56,9 @@ public class Article_CommentService {
         }
     }
 
-    public void deleteArticle_Comment(Long article_CommentId, String userId) {
-        article_CommentRepository.deleteByIdAndAccount_UserId(article_CommentId, userId);
+    // 수정 230318 UserId
+    public void deleteArticle_Comment(Long article_CommentId, String nickname) {
+        article_CommentRepository.deleteByIdAndAccount_Nickname(article_CommentId, nickname);
     }
 
 }

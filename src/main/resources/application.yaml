@@ -2,10 +2,13 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+  redis:
+    host: localhost
+    port: 6379
   datasource:
     username: gobook
     password: gobook
-    url: jdbc:mysql://localhost:3307/gobook?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/gobook?serverTimezone=UTC&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     generate-ddl: true
@@ -29,7 +32,8 @@ server:
   tomcat:
     max-http-form-post-size: 5MB
     
-    
+jwt:
+  secret: qlxmrydbrtpsxjzkrxpdlfvmfhwprxmfhrmdlsrorkxekwjdakf
     
  # mvc:
  #   hiddenmethod:

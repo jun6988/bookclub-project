@@ -34,7 +34,7 @@ public class Article_CommentController {
             @AuthenticationPrincipal(expression = "accountDto") AccountDto accountDto,
             Long articleId
     ) {
-        article_CommentService.deleteArticle_Comment(commentId, accountDto.userId());
+        article_CommentService.deleteArticle_Comment(commentId, accountDto.nickname());
 
     }
 
