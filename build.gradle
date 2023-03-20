@@ -22,9 +22,14 @@ repositories {
 	mavenCentral()
 }
 dependencies {
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+<<<<<<< HEAD
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
 //developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -39,26 +44,63 @@ dependencies {
 //testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //testImplementation 'org.springframework.security:spring-security-test'
 // 성훈
+=======
+	//developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//implementation 'org.springframework.boot:spring-boot-starter-mail'
+	//implementation 'org.springframework.boot:spring-boot-starter-validation'
+	
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	//implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//implementation 'org.springframework.boot:spring-boot-starter-web'
+	//implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	//compileOnly 'org.projectlombok:lombok'
+	//testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//testImplementation 'org.springframework.security:spring-security-test'
+	
+	// 성훈 
+>>>>>>> refs/remotes/origin/master
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	compileOnly 'org.projectlombok:lombok'
+<<<<<<< HEAD
 // developmentOnly 'org.springframework.boot:spring-boot-devtools'
+=======
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+>>>>>>> refs/remotes/origin/master
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+<<<<<<< HEAD
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // jwt
 	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5' // jwt
 	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' // jwt
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis
 //db
+=======
+	
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // jwt
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5' // jwt
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' // jwt
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis
+	
+	//db
+>>>>>>> refs/remotes/origin/master
 	runtimeOnly 'com.h2database:h2'
+<<<<<<< HEAD
 //runtimeOnly 'org.postgresql:postgresql'
 //runtimeOnly 'com.mysql:mysql-connector-j'
+=======
+    //runtimeOnly 'org.postgresql:postgresql'
+	//runtimeOnly 'com.mysql:mysql-connector-j'
+	
+>>>>>>> refs/remotes/origin/master
 	testImplementation 'com.tngtech.archunit:archunit-junit5-api:0.23.1'
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"

@@ -12,6 +12,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+<<<<<<< HEAD
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -73,4 +74,51 @@ public class SecurityConfig implements WebMvcConfigurer{
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
     
+=======
+
+import com.prefix.app.readingnote.jwt.JwtAuthenticationFilter;
+import com.prefix.app.readingnote.jwt.JwtTokenProvider;
+
+import lombok.RequiredArgsConstructor;
+
+@Configuration
+@RequiredArgsConstructor
+@EnableWebSecurity
+public class SecurityConfig {
+	
+	private final JwtTokenProvider jwtTokenProvider;
+	private final RedisTemplate redisTemplate;
+	
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
+	
+    @Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http
+			.httpBasic().disable()
+			.csrf().disable()
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			.and()
+			.authorizeHttpRequests()
+			.antMatchers("/account/user/**").hasRole("user")
+			.antMatchers("/host/**").hasRole("host")
+//			.antMatchers("/**").authenticated()
+			.anyRequest().permitAll()
+			.and()
+			.apply(new JwtSecurityConfig(jwtTokenProvider, redisTemplate))
+			.and()
+			.addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, redisTemplate), UsernamePasswordAuthenticationFilter.class)
+			.cors();
+			
+		return http.build();
+	}
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
+>>>>>>> refs/remotes/origin/master
 }

@@ -8,7 +8,7 @@ spring:
   datasource:
     username: gobook
     password: gobook
-    url: jdbc:mysql://localhost:3307/gobook?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/gobook?serverTimezone=UTC&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
@@ -31,6 +31,7 @@ app:
 server:
   tomcat:
     max-http-form-post-size: 5MB
+<<<<<<< HEAD
 jwt:
   secret: qlxmrydbrtpsxjzkrxpdlfvmfhwprxmfhrmdlsrorkxekwjdakf
 data.rest:
@@ -40,3 +41,13 @@ data.rest:
 # hiddenmethod:
 # filter:
 # enabled: true
+=======
+    
+jwt:
+  secret: qlxmrydbrtpsxjzkrxpdlfvmfhwprxmfhrmdlsrorkxekwjdakf
+    
+ # mvc:
+ #   hiddenmethod:
+  #    filter:
+  #      enabled: true
+>>>>>>> refs/remotes/origin/master

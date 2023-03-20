@@ -84,7 +84,7 @@ public class ArticleController {
     		@PathVariable(name = "articleId") Long articleId,
             @AuthenticationPrincipal(expression = "accountDto") AccountDto accountDto
     ) {
-        articleService.deleteArticle(articleId, accountDto.userId());
+        articleService.deleteArticle(articleId, accountDto.nickname());
     }
 
 //    @PostMapping("/form")

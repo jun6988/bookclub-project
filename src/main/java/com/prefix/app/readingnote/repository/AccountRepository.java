@@ -9,6 +9,9 @@ import com.prefix.app.readingnote.domain.Account;
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
 	Optional<Account> findByEmail(String email);
+<<<<<<< HEAD
 
 	Account getReferenceById(String accountId);
+=======
+>>>>>>> refs/remotes/origin/master
 }

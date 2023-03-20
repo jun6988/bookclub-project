@@ -24,6 +24,7 @@ public class ReadingProgress {
 	
 	private Integer attainment_percent;
 
+<<<<<<< HEAD
 ////	Account(1) : ReadingProgress(N) 설정
 ////	@ManyToOne
 ////	@Column(name = "account_id")
@@ -32,6 +33,8 @@ public class ReadingProgress {
 //	@JoinColumn(name = "account_id")
 //	private Account account;
 	
+=======
+>>>>>>> refs/remotes/origin/master
 //	Account(1) : ReadingProgress(N) 설정
 //	@ManyToOne
 	@Column(name = "account_id")

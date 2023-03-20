@@ -24,11 +24,13 @@ public interface ArticleRepository extends
 	// 검색 기능 
     Page<Article> findByTitleContaining(String title, Pageable pageable);
     Page<Article> findByContentContaining(String content, Pageable pageable);
-    Page<Article> findByAccount_UserIdContaining(String userId, Pageable pageable);
+    // 수정 230318 userId
+    //Page<Article> findByAccount_UserIdContaining(String userId, Pageable pageable);
     Page<Article> findByAccount_NicknameContaining(String nickname, Pageable pageable);
     Page<Article> findByHashtag(String hashtag, Pageable pageable);
 
-    void deleteByIdAndAccount_UserId(Long articleId, String userId);
+    // 수정 userId
+    void deleteByIdAndAccount_Nickname(Long articleId, String nickname);
 
     @Override
     default void customize(QuerydslBindings bindings, QArticle root) {
