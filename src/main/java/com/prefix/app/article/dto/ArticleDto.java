@@ -3,7 +3,7 @@ package com.prefix.app.article.dto;
 import java.time.LocalDateTime;
 
 import com.prefix.app.article.domain.Article;
-import com.prefix.app.modules.account.domain.entity.Account;
+import com.prefix.app.readingnote.domain.Account;
 
 public record ArticleDto(
 		// entity의 모든 정보를 가지고 있다. 

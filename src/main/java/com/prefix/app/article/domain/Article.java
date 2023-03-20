@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import com.prefix.app.modules.account.domain.entity.Account;
+import com.prefix.app.readingnote.domain.Account;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,9 +42,14 @@ public class Article extends AuditingFields {
     private Long id; 
 
   
-    @Setter @ManyToOne(optional = false) @JoinColumn(name = "account_id") private Account account;
+    @Setter @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "user_id") private Account account;
+////	Account(1) : Aticle(N) 설정
+////	@ManyToOne
+//	@Column(name = "account_id")
+//	private Long account_id;
 
-
+    
+    
     @Setter @Column(nullable = false) private String title; 
     @Setter @Column(nullable = false, length = 10000) private String content; 
 

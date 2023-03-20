@@ -1,40 +1,32 @@
 package com.prefix.app.article.dto;
 
-import java.time.LocalDateTime;
-
-import com.prefix.app.modules.account.domain.entity.Account;
+import com.prefix.app.readingnote.domain.Account;
 
 public record AccountDto(
         String userId,
         String password,
         String email,
-        String nickname,
-        LocalDateTime createdDate,
-        LocalDateTime lastModifiedDate
+        String nickname
 ) {
 
     public static AccountDto of(String userId, String password, String email, String nickname) {
-        return new AccountDto(userId, password, email, nickname, null, null);
+        return new AccountDto(userId, password, email, nickname);
     }
 
-    public static AccountDto of(String userId, String password, String email, String nickname, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
-        return new AccountDto(userId, password, email, nickname, createdDate, lastModifiedDate);
-    }
+
 
     public static AccountDto from(Account entity) {
         return new AccountDto(
                 entity.getUserId(),
                 entity.getPassword(),
                 entity.getEmail(),
-                entity.getNickname(),
-                entity.getCreatedDate(),
-                entity.getLastModifiedDate()
+                entity.getNickname()
                 );
     }
 
     public Account toEntity() {
         return Account.of(
-                userId,
+        		userId,
                 password,
                 email,
                 nickname

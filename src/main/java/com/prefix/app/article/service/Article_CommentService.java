@@ -12,8 +12,8 @@ import com.prefix.app.article.domain.Article_Comment;
 import com.prefix.app.article.dto.Article_CommentDto;
 import com.prefix.app.article.repository.ArticleRepository;
 import com.prefix.app.article.repository.Article_CommentRepository;
-import com.prefix.app.modules.account.domain.entity.Account;
-import com.prefix.app.modules.account.infra.repository.AccountRepository;
+import com.prefix.app.readingnote.domain.Account;
+import com.prefix.app.readingnote.repository.AccountRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

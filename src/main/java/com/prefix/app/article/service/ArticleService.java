@@ -14,9 +14,8 @@ import com.prefix.app.article.domain.constant.SearchType;
 import com.prefix.app.article.dto.ArticleDto;
 import com.prefix.app.article.dto.ArticleWithCommentsDto;
 import com.prefix.app.article.repository.ArticleRepository;
-import com.prefix.app.modules.account.domain.UserAccount;
-import com.prefix.app.modules.account.domain.entity.Account;
-import com.prefix.app.modules.account.infra.repository.AccountRepository;
+import com.prefix.app.readingnote.domain.Account;
+import com.prefix.app.readingnote.repository.AccountRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

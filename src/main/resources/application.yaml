@@ -2,36 +2,41 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+  redis:
+    host: localhost
+    port: 6379
   datasource:
     username: gobook
     password: gobook
     url: jdbc:mysql://localhost:3307/gobook?serverTimezone=UTC&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    generate-ddl: true
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      ddl-auto: create-drop
+    open-in-view: false
+    defer-datasource-initialization: true
+    hibernate.ddl-auto: create
+    show-sql: true
     properties:
-      hibernate:
-        format_sql: true
+      hibernate.format_sql: true
+      hibernate.default_batch_fetch_size: 100
+  h2.console.enabled: false
   main:
     allow-bean-definition-overriding: true
-
 logging:
   level:
     org.hibernate:
-      SQL: debug
+      SQL: error
       type.descriptor.sql.BasicBinder: trace
 app:
   host: http://localhost:8080
 server:
   tomcat:
     max-http-form-post-size: 5MB
-    
-    
-    
- # mvc:
- #   hiddenmethod:
-  #    filter:
-  #      enabled: true
+jwt:
+  secret: qlxmrydbrtpsxjzkrxpdlfvmfhwprxmfhrmdlsrorkxekwjdakf
+data.rest:
+  base-path: /api
+  detection-strategy: annotated
+# mvc:
+# hiddenmethod:
+# filter:
+# enabled: true
