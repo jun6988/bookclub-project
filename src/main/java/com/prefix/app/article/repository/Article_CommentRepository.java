@@ -22,9 +22,7 @@ public interface Article_CommentRepository extends
     // 게시글 id를 통해 게시글id에 해당하는 댓글 리스트를 뽑는다 
     // 댓글 요소로 검색하는 것이 아닌 게시글로 댓글 검색 
     List<Article_Comment> findByArticle_Id(Long articleId); 
-    
-    // 수정 230318 userId
-    void deleteByIdAndAccount_Nickname(Long article_CommentId, String nickname);
+    void deleteByIdAndAccount_UserId(Long article_CommentId, String userId);
 
     @Override
     default void customize(QuerydslBindings bindings, QArticle_Comment root) {

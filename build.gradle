@@ -1,37 +1,32 @@
 buildscript {
-	ext {
-		queryDslVersion = "5.0.0"
-	}
+ext {
+queryDslVersion = "5.0.0"
+}
 }
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '2.7.8'
-	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-	id 'com.github.node-gradle.node' version '2.2.3'
-	id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
+id 'java'
+id 'org.springframework.boot' version '2.7.8'
+id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+id 'com.github.node-gradle.node' version '2.2.3'
+id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 group = 'com.prefix'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+compileOnly {
+extendsFrom annotationProcessor
+}
 }
 repositories {
-	mavenCentral()
+mavenCentral()
 }
 dependencies {
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-<<<<<<< HEAD
-	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
+annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+annotationProcessor 'org.projectlombok:lombok'
+implementation 'org.springframework.boot:spring-boot-starter-actuator'
+implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+implementation 'org.springframework.data:spring-data-rest-hal-explorer'
 //developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //implementation 'org.springframework.boot:spring-boot-starter-mail'
 //implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -44,99 +39,62 @@ dependencies {
 //testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //testImplementation 'org.springframework.security:spring-security-test'
 // 성훈
-=======
-	//developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	//implementation 'org.springframework.boot:spring-boot-starter-mail'
-	//implementation 'org.springframework.boot:spring-boot-starter-validation'
-	
-	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
-	//implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	//implementation 'org.springframework.boot:spring-boot-starter-web'
-	//implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-	//compileOnly 'org.projectlombok:lombok'
-	//testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	//testImplementation 'org.springframework.security:spring-security-test'
-	
-	// 성훈 
->>>>>>> refs/remotes/origin/master
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-	compileOnly 'org.projectlombok:lombok'
-<<<<<<< HEAD
+implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+implementation 'org.springframework.boot:spring-boot-starter-security'
+implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+implementation 'org.springframework.boot:spring-boot-starter-web'
+implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+compileOnly 'org.projectlombok:lombok'
 // developmentOnly 'org.springframework.boot:spring-boot-devtools'
-=======
-//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
->>>>>>> refs/remotes/origin/master
-	runtimeOnly 'com.mysql:mysql-connector-j'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-<<<<<<< HEAD
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // jwt
-	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5' // jwt
-	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' // jwt
-	implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis
+runtimeOnly 'com.mysql:mysql-connector-j'
+annotationProcessor 'org.projectlombok:lombok'
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+testImplementation 'org.springframework.security:spring-security-test'
+implementation 'org.springframework.boot:spring-boot-starter-validation'
+implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // jwt
+implementation 'io.jsonwebtoken:jjwt-impl:0.11.5' // jwt
+implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' // jwt
+implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis
 //db
-=======
-	
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // jwt
-	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5' // jwt
-	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' // jwt
-	implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis
-	
-	//db
->>>>>>> refs/remotes/origin/master
-	runtimeOnly 'com.h2database:h2'
-<<<<<<< HEAD
+runtimeOnly 'com.h2database:h2'
 //runtimeOnly 'org.postgresql:postgresql'
 //runtimeOnly 'com.mysql:mysql-connector-j'
-=======
-    //runtimeOnly 'org.postgresql:postgresql'
-	//runtimeOnly 'com.mysql:mysql-connector-j'
-	
->>>>>>> refs/remotes/origin/master
-	testImplementation 'com.tngtech.archunit:archunit-junit5-api:0.23.1'
-	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
-	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+testImplementation 'com.tngtech.archunit:archunit-junit5-api:0.23.1'
+implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
 //june
-	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 }
 node {
-	version = '16.9.1'
-	download = true
-	nodeModulesDir = file("${projectDir}/src/main/resources/static")
+version = '16.9.1'
+download = true
+nodeModulesDir = file("${projectDir}/src/main/resources/static")
 }
 task copyFrontLib(type: Copy) {
-	from "${projectDir}/src/main/resources/static"
-	into "${projectDir}/build/resources/main/static/."
+from "${projectDir}/src/main/resources/static"
+into "${projectDir}/build/resources/main/static/."
 }
 copyFrontLib.dependsOn npmInstall
 compileJava.dependsOn copyFrontLib
 //querydsl 추가 시작
 def querydslDir = "$buildDir/generated/querydsl"
 querydsl {
-	jpa = true
-	querydslSourcesDir = querydslDir
+jpa = true
+querydslSourcesDir = querydslDir
 }
 sourceSets {
-	main.java.srcDir querydslDir
+main.java.srcDir querydslDir
 }
 compileQuerydsl{
-	options.annotationProcessorPath = configurations.querydsl
+options.annotationProcessorPath = configurations.querydsl
 }
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-	querydsl.extendsFrom compileClasspath
+compileOnly {
+extendsFrom annotationProcessor
+}
+querydsl.extendsFrom compileClasspath
 }
 //querydsl 추가 끝
 tasks.named('test') {
-	useJUnitPlatform()
+useJUnitPlatform()
 }

@@ -47,8 +47,7 @@ public class ArticleService {
             case TITLE -> articleRepository.findByTitleContaining(searchKeyword, pageable).map(ArticleDto::from);
             case CONTENT -> articleRepository.findByContentContaining(searchKeyword, pageable).map(ArticleDto::from);
             // ID 검색은 user_account 안에 있다.  
-            // 수정 2300318 UserId
-            //case ID -> articleRepository.findByAccount_UserIdContaining(searchKeyword, pageable).map(ArticleDto::from);
+            case ID -> articleRepository.findByAccount_UserIdContaining(searchKeyword, pageable).map(ArticleDto::from);
             case NICKNAME -> articleRepository.findByAccount_NicknameContaining(searchKeyword, pageable).map(ArticleDto::from);
             // hashtag는 단순한 분류 
             // #을 빼놓고 검색 가능 
@@ -74,7 +73,7 @@ public class ArticleService {
 
     // 게시글 정보를 입력하면 게시글 생성 및 저장하는 기능  
     public void saveArticle(ArticleDto dto) {
-        Account account = accountRepository.getReferenceById(dto.accountDto().id());
+        Account account = accountRepository.getReferenceById(dto.accountDto().userId());
         articleRepository.save(dto.toEntity(account)); 
         // toEntity : ArticleDto에서 entity를 생성해서 save = 새로운 게시물 내용 생성하여 저장 
     }
@@ -85,7 +84,7 @@ public class ArticleService {
     	// findById : 단건 조회 / select query 발생 
         try {
             Article article = articleRepository.getReferenceById(articleId);
-            Account account = accountRepository.getReferenceById(dto.accountDto().id());
+            Account account = accountRepository.getReferenceById(dto.accountDto().userId());
             if(article.getAccount().equals(account)) {
             	// if 문이 null이 아닐때만 동작시켜라 
             	if (dto.title() != null) { article.setTitle(dto.title()); }
@@ -98,9 +97,8 @@ public class ArticleService {
     }
 
     // 게시글 삭제 기능 
-    // 수정 230318 userId
-    public void deleteArticle(long articleId, String nickname) {
-        articleRepository.deleteByIdAndAccount_Nickname(articleId, nickname);
+    public void deleteArticle(long articleId, String userId) {
+        articleRepository.deleteByIdAndUserAccount_UserId(articleId, userId);
     }
 
     public long getArticleCount() {
